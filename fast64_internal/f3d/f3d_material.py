@@ -426,7 +426,6 @@ def ui_geo_mode(settings, dataHolder, layout, useDropdown):
             icon="TRIA_DOWN" if dataHolder.menu_geo else "TRIA_RIGHT",
         )
     if not useDropdown or dataHolder.menu_geo:
-
         def indentGroup(parent: UILayout, textOrProp: Union[str, "F3DMaterialProperty"], isText: bool) -> UILayout:
             c = parent.column(align=True)
             if isText:
@@ -541,6 +540,8 @@ def ui_geo_mode(settings, dataHolder, layout, useDropdown):
             c.label(text=f"Shade in use in {where}, must enable.", icon="ERROR")
         elif ccWarnings and settings.g_shade and not shadeInCC and not shadeInBlender:
             c.label(text="Shade is not being used, can disable.", icon="INFO")
+
+        c = indentGroup(inputGroup, "g_light_map", False)
 
         c = indentGroup(inputGroup, "Not useful:", True)
         c.prop(settings, "g_lod")
@@ -2994,6 +2995,14 @@ class RDPSettings(PropertyGroup):
         update=update_node_values_with_preset,
         description="Shades primitive smoothly using interpolation between shade values for each vertex (Gouraud shading)",
     )
+
+    g_light_map: bpy.props.BoolProperty(
+        name="Light Map",
+        default=False,
+        update=update_node_values_with_preset,
+        description="Uses vertex colors as a light map"
+    )
+
     g_clipping: bpy.props.BoolProperty(
         name="Clipping",
         default=False,
@@ -3251,6 +3260,7 @@ class RDPSettings(PropertyGroup):
             self.g_tex_gen_linear,
             self.g_lod,
             self.g_shade_smooth,
+            self.g_light_map,
             self.g_clipping,
             self.g_mdsft_alpha_dither,
             self.g_mdsft_rgb_dither,

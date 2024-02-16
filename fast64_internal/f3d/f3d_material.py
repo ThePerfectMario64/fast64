@@ -2341,9 +2341,9 @@ def createF3DMat(obj: Object | None, preset="Shaded Solid", index=None, lightmap
     link_f3d_material_library()
 
     # beefwashere is a linked material containing the default layout for all the linked node_groups
-    mat = bpy.data.materials["beefwashere"]
+    mat = bpy.data.materials["fast64_f3d_material_library_beefwashere"]
     if lightmap:
-        mat = bpy.data.materials["beefwashere_lightmap"]
+        mat = bpy.data.materials["fast64_f3d_material_library_beefwashere_lightmap"]
 
     # duplicate and rename the linked material
     material = mat.copy()

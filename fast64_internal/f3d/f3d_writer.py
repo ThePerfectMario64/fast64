@@ -789,7 +789,10 @@ class F3DVert:
 
     def toVtx(self, mesh, texDimensions, transformMatrix, isPointSampled: bool, tex_scale=(1, 1)) -> Vtx:
         # Position (8 bytes)
-        position = [int(round(floatValue)) for floatValue in (transformMatrix @ self.position)]
+        if bpy.context.scene.vtxRound:
+            position = [int(round(floatValue)) for floatValue in (transformMatrix @ self.position)]
+        else:
+            position = [floatValue for floatValue in (transformMatrix @ self.position)]
 
         # UV (4 bytes)
         # For F3D, Bilinear samples the point from the center of the pixel.

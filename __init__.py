@@ -41,11 +41,11 @@ from .fast64_internal.coop.coop import f3d_coop_register, f3d_coop_unregister
 
 # info about add on
 bl_info = {
-    "name": "Fast64",
+    "name": "Fast64 Deluxe",
     "version": (2, 2, 0),
-    "author": "kurethedead",
+    "author": "kurethedead&Agent X",
     "location": "3DView",
-    "description": "Plugin for exporting F3D display lists and other game data related to Nintendo 64 games.",
+    "description": "Plugin for exporting F3D display lists and other game data related to Nintendo 64 games, Edited Version For Use In Coop",
     "category": "Import-Export",
     "blender": (3, 2, 0),
 }

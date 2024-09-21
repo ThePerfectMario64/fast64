@@ -12,7 +12,7 @@ Make sure to save often, as this plugin is prone to crashing when creating mater
 
 <https://developer.blender.org/T70574>
 
-### Example models can be found [here](https://github.com/Fast-64/fast64-models)
+### Example models can be found [here](https://github.com/ThePerfectMario64/fast64-models)
 
 ![alt-text](/images/mat_inspector.png)
 
